@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class EventAnimation : EventSystem
 {
-    public Animator animatorObj;
+    [SerializeField] private Animator _animator;
     public override void StartEvenement()
     {
-        Debug.Log("in animation");
-        animatorObj.enabled = true;
+        _animator.enabled = true;
     }
 }
