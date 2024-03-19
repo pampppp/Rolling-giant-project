@@ -5,7 +5,7 @@ using UnityEngine;
 public class EventSpawnObject : EventSystem
 {
     [Tooltip("select object to spawn or unspawn")]    
-    public GameObject gameobject;
+    public GameObject obj;
     [Tooltip("define if the object spawn or desapear")]
     public bool spawnObject;    
     [Tooltip("define if the object desappear after n time")]
@@ -22,18 +22,22 @@ public class EventSpawnObject : EventSystem
         {
             if(isSpawnAtOtherLocation)
             {
-                gameObject.transform.position = newLocation;
+                obj.transform.position = newLocation;
             }
-            gameObject.SetActive(true);   
+            obj.SetActive(true);   
             if(isDesappear)
             {
                 StartCoroutine(UnspawnObjectCouroutine());
             }
         }
+        else
+        {
+            obj.SetActive(false);
+        }
     }
     IEnumerator UnspawnObjectCouroutine()
     {
         yield return new WaitForSeconds(countdownTime);
-        gameObject.SetActive(false);
+        obj.SetActive(false);
     }
 }

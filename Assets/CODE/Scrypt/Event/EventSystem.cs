@@ -11,8 +11,15 @@ public enum EVENEMENT_TYPE
 
 public abstract class EventSystem : MonoBehaviour
 {
-    [SerializeField]private EVENEMENT_TYPE _eventType;
+    //[SerializeField]private EVENEMENT_TYPE _eventType;
     [Tooltip("define if the trigger desapear after activation")]
     public bool unspawnTrigger;
     public abstract void StartEvenement();
+    public void DesableTrigger()
+    {
+        if (unspawnTrigger)
+        {
+            this.gameObject.SetActive(false);
+        }
+    }
 }
