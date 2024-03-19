@@ -18,6 +18,7 @@ public class EventSpawnObject : EventSystem
 
     public override void StartEvenement()
     {
+        Debug.Log("in spawn");
         if (spawnObject)
         {
             if(isSpawnAtOtherLocation)
@@ -32,6 +33,7 @@ public class EventSpawnObject : EventSystem
         }
         else
         {
+            Debug.Log("in unspawn");
             obj.SetActive(false);
         }
     }
