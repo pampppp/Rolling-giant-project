@@ -6,7 +6,7 @@ public class EventSpawnObject : EventSystem
 {
 #region Variables
     [Tooltip("select object to spawn or unspawn")]    
-    [SerializeField] private GameObject _obj;
+    [SerializeField] private GameObject[] _obj;
     [Tooltip("define if the object spawn or desapear")]
     [SerializeField] private bool _isSpawnObject;    
     [Tooltip("define if the object desappear after n time")]
@@ -26,10 +26,14 @@ public class EventSpawnObject : EventSystem
             //check if need to change the gameobject's position
             if(_isSpawnAtOtherLocation)
             {
-                _obj.transform.position = _newLocation;
+                _obj[0].transform.position = _newLocation;
             }
             //spawn gameobject
-            _obj.SetActive(true);   
+            foreach (GameObject o in _obj)
+            {
+                o.SetActive(true); 
+            }
+              
             //check if gameobject desapear after he is spawning
             if(_isWillDesappear)
             {
@@ -39,7 +43,10 @@ public class EventSpawnObject : EventSystem
         else
         {
             //desable the object
-            _obj.SetActive(false);
+            foreach (GameObject o in _obj)
+            {
+                    o.SetActive(false); 
+            }        
         }
     }
 #endregion
@@ -48,7 +55,10 @@ public class EventSpawnObject : EventSystem
     {
         //couroutine for desable object after is spawning after n time
         yield return new WaitForSeconds(_timeBeforDesappear);
-        _obj.SetActive(false);
+        foreach (GameObject o in _obj)
+        {
+            o.SetActive(true); 
+        } 
     }
 #endregion
     

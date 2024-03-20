@@ -48,13 +48,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unspawnTrigger: 0
-  obj: {fileID: 0}
-  spawnObject: 0
-  isDesappear: 0
-  countdownTime: 0
-  isSpawnAtOtherLocation: 0
-  newLocation: {x: 0, y: 0, z: 0}
-  newRotation: {x: 0, y: 0, z: 0, w: 0}
+  _obj: {fileID: 0}
+  _isSpawnObject: 0
+  _isWillDesappear: 0
+  _timeBeforDesappear: 0
+  _isSpawnAtOtherLocation: 0
+  _newLocation: {x: 0, y: 0, z: 0}
 --- !u!33 &2992188572231017486
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -85,7 +84,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: a3e625aaaf5a48247b462231c7762cd8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

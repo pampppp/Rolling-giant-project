@@ -4,11 +4,6 @@ using UnityEngine;
 
 
 
-public enum EVENEMENT_TYPE
-{
-    SPAWN_OBJECT
-}
-
 public abstract class EventSystem : MonoBehaviour
 {
     [Tooltip("define if the trigger desapear after activation")]

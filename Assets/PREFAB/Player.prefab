@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8196392927060084600}
   - component: {fileID: 3976131552232243259}
+  - component: {fileID: 5233100072412394118}
   - component: {fileID: 417918618141549058}
   - component: {fileID: 2036908319770722744}
   - component: {fileID: 5125766106698171017}
@@ -65,6 +66,18 @@ MonoBehaviour:
   source: {fileID: 5916591393581587361}
   walkSoundPlayed: 0
   timeSoundCd: 0
+--- !u!114 &5233100072412394118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2623745979430635602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e117316447487742afe86b27d1536c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &417918618141549058
 MonoBehaviour:
   m_ObjectHideFlags: 0
