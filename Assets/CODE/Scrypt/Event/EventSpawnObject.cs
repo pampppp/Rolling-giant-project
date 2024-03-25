@@ -4,40 +4,63 @@ using UnityEngine;
 
 public class EventSpawnObject : EventSystem
 {
+#region Variables
     [Tooltip("select object to spawn or unspawn")]    
-    public GameObject obj;
+    [SerializeField] private GameObject[] _obj;
     [Tooltip("define if the object spawn or desapear")]
-    public bool spawnObject;    
+    [SerializeField] private bool _isSpawnObject;    
     [Tooltip("define if the object desappear after n time")]
-    public bool isDesappear;
-    public float countdownTime;
+    [SerializeField] private bool _isWillDesappear;
+    [SerializeField] private float _timeBeforDesappear;
     [Tooltip("define if the location of the object is diferent like the inspector")]
-    public bool isSpawnAtOtherLocation;
-    public Vector3 newLocation;
-    public Quaternion newRotation;
-
-    public override void StartEvenement()
+    [SerializeField] private bool _isSpawnAtOtherLocation;
+    [SerializeField] private Vector3 _newLocation;
+#endregion
+    
+#region Fonction
+    public override void StartEvenement() 
     {
-        if (spawnObject)
+        //check if we spawn or unspawn the gameobject
+        if (_isSpawnObject)
         {
-            if(isSpawnAtOtherLocation)
+            //check if need to change the gameobject's position
+            if(_isSpawnAtOtherLocation)
             {
-                obj.transform.position = newLocation;
+                _obj[0].transform.position = _newLocation;
             }
-            obj.SetActive(true);   
-            if(isDesappear)
+            //spawn gameobject
+            foreach (GameObject o in _obj)
             {
-                StartCoroutine(UnspawnObjectCouroutine());
+                o.SetActive(true); 
+            }
+              
+            //check if gameobject desapear after he is spawning
+            if(_isWillDesappear)
+            {
+                StartCoroutine(UnisSpawnObjectCouroutine());
             }
         }
         else
         {
-            obj.SetActive(false);
+            //desable the object
+            foreach (GameObject o in _obj)
+            {
+                    o.SetActive(false); 
+            }        
         }
     }
-    IEnumerator UnspawnObjectCouroutine()
+#endregion
+#region couroutine
+    IEnumerator UnisSpawnObjectCouroutine()
     {
-        yield return new WaitForSeconds(countdownTime);
-        obj.SetActive(false);
+        //couroutine for desable object after is spawning after n time
+        yield return new WaitForSeconds(_timeBeforDesappear);
+        foreach (GameObject o in _obj)
+        {
+            o.SetActive(true); 
+        } 
     }
+#endregion
+    
+    
 }
